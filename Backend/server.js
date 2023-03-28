@@ -1,7 +1,9 @@
 const express = require('express');
 const db = require('./db')
 const Pizza = require('./Models/pizzaModel')
-const dotenv=require('dotenv').config();
+const dotenv = require("dotenv");
+
+dotenv.config();
 
 const app = express();
 app.use(express.json());
