@@ -9,12 +9,14 @@ const app = express();
 app.use(express.json());
 
 const pizzasRoute = require('./Routes/pizzaRoutes')
+const userRoute = require('./Routes/userRoute')
 
 app.get("/", (req, res) => {
     res.send("Server is running...")
 })
 
 app.use('/api/pizzas/', pizzasRoute)
+app.use('/api/users/' , userRoute)
 
 
 const port = process.env.PORT || 5000;
