@@ -67,3 +67,12 @@ select{
   color:red !important;
   margin:5px;
 }
+
+input{
+  margin-top:12px !important;
+  box-shadow: none !important;
+}
+
+.downLink{
+  margin-top:20px;
+}

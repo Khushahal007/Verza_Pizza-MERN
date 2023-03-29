@@ -3,6 +3,7 @@ import { getAllPizzas } from '../Actions/pizzaAction'
 import Pizza from '../Components/Pizza'
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import Error from '../Components/Error'
 
 const HomeScreen = () => {
 
@@ -21,7 +22,7 @@ const HomeScreen = () => {
         {loading ? (
           <img style={{marginTop:'auto', width:'500px'}} src="https://img.pikbest.com/png-images/20190918/cartoon-snail-loading-loading-gif-animation_2734139.png!bw700" alt="loading GIF" />
         ) : error ? (
-          <img src="https://cdn.dribbble.com/users/1373974/screenshots/3029413/500.gif" alt="error image"/>) : (
+          <Error error='Something went Wrong'/>) : (
           pizzas.map((pizza) => {
             return (
               <div className=" col-md-3 m-3" key={pizza._id}>
