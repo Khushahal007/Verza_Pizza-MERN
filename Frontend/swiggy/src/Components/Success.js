@@ -1,11 +1,14 @@
 import React from 'react'
 
-export default function Success(success) {
+export default function Success({successMessage}) {
+    console.log(successMessage);
     return (
         <div>
             <div className="alert alert-success" role="alert">
-               {success}
+                {successMessage}
             </div>
         </div>
+
     )
+
 }
