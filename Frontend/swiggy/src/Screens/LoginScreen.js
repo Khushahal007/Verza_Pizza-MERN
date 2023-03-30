@@ -15,6 +15,7 @@ export default function LoginScreen() {
     const { loading, error } = loginstate
     const dispatch = useDispatch()
 
+    
     useEffect(() => {
         if (localStorage.getItem('currentUser')) {
             window.location.href = '/'
@@ -33,7 +34,7 @@ export default function LoginScreen() {
                     <h2 className="text-center m-2" style={{ fontSize: '30px' }}>Login</h2>
 
                     {loading && (<Loading />)}
-                    {error && (<Error error='Invalid Credentials' />)}
+                    {error && (<Error errorMessage='Invalid Credentials' />)}
 
 
 

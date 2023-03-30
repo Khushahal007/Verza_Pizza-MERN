@@ -5,6 +5,7 @@ import { registerUser } from '../Actions/userAction'
 import Success from '../Components/Success'
 import Loading from '../Components/Loading'
 import Error from '../Components/Error'
+import axios from 'axios'
 // import { registerUserReducer } from '../Reducers/userReducer'
 
 
@@ -18,11 +19,19 @@ export default function RegisterScreen() {
     const registeruser = useSelector(state => state.registerUserReducer)
     const { error, loading, success } = registeruser
 
+    function resetFormFields() {
+        setname('')
+        setemail('')
+        setpassword('')
+        setcpassword('')
+    }
+
+
 
     const dispatch = useDispatch()
 
 
-    function register() {
+    async function register() {
         if (password !== cpassword) {
             alert('password does not match')
         } else {
@@ -31,8 +40,11 @@ export default function RegisterScreen() {
             }
             console.log(user)
             dispatch(registerUser(user))
+            resetFormFields()
         }
     }
+
+    
     return (
         <div>
 
@@ -40,8 +52,9 @@ export default function RegisterScreen() {
                 <div className="col-md-4 mt-5 text-left shadow-lg p-3 mb-5 bg-white rounded">
 
                     {loading && (<Loading />)}
-                    {success && (<Success success='User Registered Successfully' />)}
-                    {error && (<Error error='Email already register' />)}
+                    {success && <Success successMessage="User Registered Successfully" />}
+
+                    {error && <Error errorMessage='Email already register' />}
 
                     <h2 className='text-center m-2' style={{ fontSize: '30px' }}>Create an Account</h2>
                     <div>
