@@ -15,6 +15,7 @@ const Navbar = () => {
     const currentUser = userstate
 
     const dispatch = useDispatch()
+    console.log(currentUser)
     return (
         <nav className="navbar navbar-expand-lg shadow-lg p-3 mb-5 bg-body rounded">
             <NavLink to="/">
@@ -32,11 +33,11 @@ const Navbar = () => {
                                 {currentUser.name}
                             </a>
                             <div className="dropdown-menu mt-2" aria-labelledby="dropdownMenuButton">
-                                <a className="dropdown-item" to="#">Orders</a>
-                                <a className="dropdown-item" to="#" onClick={() => { dispatch(logoutUser()) }}>Logout</a>
-
+                                <a className="dropdown-item" href="/orders">Orders</a>
+                                <a className="dropdown-item" href="/login" onClick={() => { dispatch(logoutUser()) }}>Logout</a>
                             </div>
                         </div>
+
 
                     ) : (
                         <li className="nav-item active">
@@ -48,6 +49,8 @@ const Navbar = () => {
                     </li>
                 </ul>
             </div>
+
+
         </nav>
     )
 }
