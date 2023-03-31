@@ -23,7 +23,9 @@ const CardScreen = () => {
                         return <div className="flex-container">
                             <div className="text-left m-1 w-100">
                                 <h1>{item.name}</h1>
-                                <h1>Price: {item.quantity} * {item.price[0][item.varient]}={item.prices}</h1>
+                                {/* <h1>Price: {item.quantity} * {item.price[0][item.varient]}={item.prices}</h1> */}
+                                <h1>Price: {item.quantity} * {item.price[0][item.varient]}={item.quantity * item.price[0][item.varient]}</h1>
+
                                 <h1 style={{ display: 'inline' }}>Quantity: </h1>
                                 <i class="fa fa-plus" aria-hidden="true" onClick={dispatch(addToCart(item, item.quantity, item.varient + 1))}></i>
                                 <b>{item.quantity}</b>
