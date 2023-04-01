@@ -27,6 +27,8 @@ export default function LoginScreen() {
         dispatch(loginUser(user))
     }
 
+ 
+
     return (
         <div>
             <div style={{ width: '40%', margin: 'auto' }} className="row justify-content-center mt-5 shadow-lg p-3 mb-5 bg-white rounded">
