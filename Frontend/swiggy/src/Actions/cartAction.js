@@ -1,13 +1,13 @@
-export const addToCart = (pizza, quantity, varient) => (dispatch, getState) => {
+export const addToCart = (pizza, quantity, variants) => (dispatch, getState) => {
 
    var cartItem = {
       name: pizza.name,
       _id: pizza._id,
       image: pizza.image,
-      varient: varient,
+      variants: variants,
       quantity: Number(quantity),
       price: pizza.price,
-      prices: pizza.price[0][varient] * quantity
+      prices: pizza.price[0][variants] * quantity
    }
 
    if (cartItem.quantity > 10) {
