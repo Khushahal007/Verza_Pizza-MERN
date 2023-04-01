@@ -1,23 +1,35 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import "../index.css"
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import pizza from "../images/pizza.jpg"
 // import { loginUserReducer } from '../Reducers/userReducer';
 import { logoutUser } from '../Actions/userAction';
 
 
 
+
+
 const Navbar = () => {
 
     const cartstate = useSelector(state => state.cartReducer)
-    const userstate = useSelector(state => state.loginUserReducer)
-    const currentUser = userstate
+    const userstate = useSelector(state => state.loginUserReducer.loginUserReducer)
+    // const currentUser = userstate
+    const [user, setUser] = useState(JSON.parse(localStorage.getItem('currentUser')) || null)
+
+
 
     const dispatch = useDispatch()
-    console.log(currentUser)
+
+
+    function handleLogout() {
+        dispatch(logoutUser());
+    }
+
+
+
     return (
-        <nav className="navbar navbar-expand-lg shadow-lg p-3 mb-5 bg-body rounded">
+        <nav className="navbar navbar-expand-lg shadow-lg p-1 mb-5 bg-body rounded fixed-to">
             <NavLink to="/">
                 <img className="pizza" src={pizza} alt="Image description" />
             </NavLink>
@@ -26,18 +38,16 @@ const Navbar = () => {
             </button>
             <div className="collapse navbar-collapse" id="navbarNav">
                 <ul className="navbar-nav">
+                    {user ? (
 
-                    {currentUser ? (
-                        <div className="dropdown">
-                            <a className="dropdown-toggle" style={{ color: 'black' }} id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                {currentUser.name}
-                            </a>
-                            <div className="dropdown-menu mt-2" aria-labelledby="dropdownMenuButton">
-                                <a className="dropdown-item" href="/orders">Orders</a>
-                                <a className="dropdown-item" href="/login" onClick={() => { dispatch(logoutUser()) }}>Logout</a>
-                            </div>
-                        </div>
+                        <>
 
+                            <NavLink style={{ marginRight: '30px', marginTop: '8px', text: 'bold', fontSize: '19px', color: 'red', textDecoration: 'none' }} to="">{user.name}</NavLink>
+
+                            <NavLink style={{ marginRight: '30px', marginTop: '8px', fontSize: '19px', color: 'black', textDecoration: 'none' }} to="/orders">Orders</NavLink>
+                            <h5 className='m-auto' to='/login' onClick={handleLogout}>Logout</h5>
+
+                        </>
 
                     ) : (
                         <li className="nav-item active">
@@ -45,7 +55,7 @@ const Navbar = () => {
                         </li>
                     )}
                     <li className="nav-item">
-                        <NavLink className="nav-link" to="/cart">Cart {cartstate.cartItems.length}</NavLink>
+                        <NavLink style={{ marginRight: '10px', paddingLeft: '20px', fontSize: '19px' }} className="nav-link" to='/cart'>Cart {cartstate.cartItems.length}</NavLink>
                     </li>
                 </ul>
             </div>
