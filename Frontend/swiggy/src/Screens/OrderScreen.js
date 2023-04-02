@@ -15,9 +15,10 @@ export default function OrderScreen() {
   useEffect(()=>{
     dispatch(getUserOrders())
   })
+  console.log(orderstate)
   return (
     <>
-    <h2 style={{fontSize: '35px'}}>My Orders</h2>
+    <h2  style={{fontSize: '35px'}}>My Orders</h2>
     <div className="row justify-content-center">
       {loading && (<Loading/>)}
       {error && (<Error errorMessage='Something went wrong'/>)}
@@ -53,3 +54,15 @@ export default function OrderScreen() {
     </>
   )
 }
+
+
+//  order : [
+//   {
+//     orders: cartItems,
+//     address: {}
+//   },
+//   {
+//     orders: cartItems,
+//     address: {}
+//   }
+//  ]

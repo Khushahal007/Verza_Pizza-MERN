@@ -12,7 +12,7 @@ const CardScreen = () => {
     var subtotal = cartItems.reduce((x, item) => x + item.price[0][item.variants] * item.quantity, 0)
 
     const dispatch = useDispatch();
-
+// console.log(cartItems[0].variants)
     return (
         <div>
             <div className="row justify-content-center">
@@ -24,7 +24,7 @@ const CardScreen = () => {
                         <div className="flex-container" key={item.name}>
                             <div className="text-left m-1 w-100">
                                 <h1>{item.name}</h1>
-                                <h1>Price: {item.quantity} * {item.variants[item.price]} = {item.quantity * item.price[item.variants]}</h1>
+                                <h1>Price: {item.quantity} * {item.price[0][item.variants]} = {item.quantity * item.price[0][item.variants]}</h1>
                                 <h1 style={{ display: 'inline' }}>Quantity: </h1>
                                 <i className="fa fa-plus" aria-hidden="true" onClick={() => dispatch(addToCart(item, item.quantity + 1, item.variants))}></i>
                                 <b>{item.quantity}</b>
