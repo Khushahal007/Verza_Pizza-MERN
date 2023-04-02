@@ -20,19 +20,15 @@ export default function Pizza({ pizza }) {
 
 
     return (
-        <div style={{ margin: '40px' }} className="shadow-lg p-3 mb-4 bg-white rounded">
+        <div style={{ margin: '30px' }} className="shadow-lg p-3 mb-4 bg-white rounded">
             <div onClick={handleShow}>
                 <h1>{pizza.name}</h1>
-                <img src={pizza.image} alt="pizza-image" className="img-fluid" style={{ height: '200px', width: '250px' }} />
+                <img src={pizza.image} alt="pizza-image" className="mb-2" style={{ height: '200px', width: '250px' }} />
             </div>
             <div className="flex-container">
-                <div className="w-100 m-1">
+                <div className="w-100 m-2">
                     <p>Variants</p>
-                    {/* <select className="from-control" value={variants} onChange={(e) => { setvariants(e.target.value) }}>
-                        {pizza.variants.map(variant => (
-                            <option value={variant.name}>{variant}</option>
-                        ))}
-                    </select> */}
+                   
                     <select className="from-control" value={variants} onChange={(e) => { setvariants(e.target.value) }}>
                         {pizza.variants.map(variant => (
                             <option  key={variant.name} value={variant.name}>{variant}</option>
@@ -41,8 +37,8 @@ export default function Pizza({ pizza }) {
 
 
                 </div>
-                <div className="w-100 m-1">
-                    <p>Quantity</p>
+                <div className=" m-1" style={{width:'270px', paddingRight:'13px'}}>
+                    <p style={{marginTop:'2px'}}>Quantity</p>
                     <select className="form-control" value={quantity} onChange={(e) => { setquantity(e.target.value) }}>
 
                         {[...Array(10).keys(10)].map((x, i) => {
@@ -61,7 +57,7 @@ export default function Pizza({ pizza }) {
 
 
                 </div>
-                <div style={{ marginLeft: "32px" }}>
+                <div style={{ marginLeft: "140px" , position:'absolute'}}>
                     <button className="btn" onClick={addtocart}>Add To Cart</button>
 
                 </div>

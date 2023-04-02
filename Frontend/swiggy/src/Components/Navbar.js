@@ -44,14 +44,14 @@ const Navbar = () => {
 
                             <NavLink style={{ marginRight: '30px', marginTop: '8px', text: 'bold', fontSize: '19px', color: 'red', textDecoration: 'none' }} to="">{user.name}</NavLink>
 
-                            <NavLink style={{ marginRight: '30px', marginTop: '8px', fontSize: '19px', color: 'black', textDecoration: 'none' }} to="/orders">Orders</NavLink>
-                            <h5 className='m-auto' to='/login' onClick={handleLogout}>Logout</h5>
+                            {/* <NavLink style={{ marginRight: '30px', marginTop: '8px', fontSize: '19px', color: 'black', textDecoration: 'none' }} to="/orders">Orders</NavLink> */}
+                            <h5 className='m-auto btn cursor-pointer' to='/login' onClick={handleLogout}>Logout</h5>
 
                         </>
 
                     ) : (
                         <li className="nav-item active">
-                            <NavLink className="nav-link" to="/login">Login</NavLink>
+                            <NavLink className="nav-link btn cursor-pointer" to="/login">Login</NavLink>
                         </li>
                     )}
                     <li className="nav-item">
