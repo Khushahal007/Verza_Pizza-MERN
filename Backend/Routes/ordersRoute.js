@@ -24,7 +24,7 @@ router.post('/placeorder', async (req, res) => {
         
         if (payment) {
 
-         const newOrder=new Order({
+         const newOrder=new order({
             name: currentUser.name,
             email: currentUser.email,
             userid: currentUser._id,
@@ -39,16 +39,18 @@ router.post('/placeorder', async (req, res) => {
             transaction: payment .source.id
          })
 
-
+            await newOrder.save();
             res.send('Order Placed Successfully')
         } else {
             res.send('Order Failure')
         }
     } catch (error) {
         return res.status(400).json({ message: 'Something Went Wrong' })
+       
     }
 
 })
+
 
 router.post('/getuserorders',async (req, res) => {
     const {userid}=req.body
