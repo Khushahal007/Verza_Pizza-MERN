@@ -10,6 +10,7 @@ import CardScreen from './Screens/CardScreen'
 import RegisterScreen from './Screens/RegisterScreen'
 import LoginScreen from './Screens/LoginScreen'
 import OrderScreen from './Screens/OrderScreen';
+import Footer from './Components/Footer';
 
 const App = () => {
   return (
@@ -22,6 +23,7 @@ const App = () => {
         <Route path="/login"  element={<LoginScreen/>} />
         {/* <Route path="/orders"  element={<OrderScreen/>} /> */}
       </Routes>
+      <Footer/>
 
     </div>
   )
