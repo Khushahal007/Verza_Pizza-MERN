@@ -8,12 +8,14 @@ export const getAllPizzasReducer = (state = { pizzas: [] }, action) => {
       
     }
     case 'GET_PIZZAS_SUCCESS': return {
+      ...state,
       loading: false,
       pizzas: action.payload
     }
     case 'GET_PIZZAS_ERROR': return {
+      ...state,
       loading: false,
-      pizzas: []
+      pizzas: action.payload.error.response
     }
 
     default: return state
