@@ -10,6 +10,6 @@ export const getAllPizzas = () => async dispatch => {
         dispatch({ type: 'GET_PIZZAS_SUCCESS', payload: response.data });
     } catch (error) {
         console.log(error.response.data);
-        dispatch({ type: 'GET_PIZZAS_ERROR', payload: [] });
+        dispatch({ type: 'GET_PIZZAS_ERROR', payload: error.response });
     }
 }
