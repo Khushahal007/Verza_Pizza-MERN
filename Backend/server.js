@@ -15,7 +15,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // Enable CORS
-const allowedOrigins = ['http://localhost:3000', 'https://fronted-notes.onrender.com'];
+const allowedOrigins = ['http://localhost:3000', 'https://verza-pizza-webapp.onrender.com'];
 
 // Configure CORS middleware to allow access from the specified origins.
 app.use(cors({
